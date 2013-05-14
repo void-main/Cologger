@@ -1,4 +1,4 @@
-Cologger
-========
+#Cologger
 
-Colorful logger for ruby
+Colorful logger for ruby.
+
