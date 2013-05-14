@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.email             = "voidmain1313113@gmail.com"
   s.authors           = ["Peng Sun"]
   s.has_rdoc          = true
-  s.extra_rdoc_files  = ['README']
+  s.extra_rdoc_files  = ['README.md']
   s.require_path      = "lib"
   s.files             = %w( README.md LICENSE )
   s.files            += Dir.glob("lib/**/*")
