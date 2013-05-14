@@ -66,7 +66,7 @@ class Cologger
 
     tag, *content_array = args
     content = content_array.join(" ")
-    log  = "#{sym_for method} "
+    log  = "#{sym_for method}\t"
     log += "[#{DateTime.now.iso8601}] "
     log += "[#{tag}] #{content}"
 
