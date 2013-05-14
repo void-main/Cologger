@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "cologger"
-  s.version           = "0.1.1"
+  s.version           = "0.1.2"
   s.date              = "2013-05-14"
   s.summary           = "Log with color!"
   s.homepage          = "http://github.com/void-main/Cologger"
@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.require_path      = "lib"
   s.files             = %w( README.md LICENSE )
   s.files            += Dir.glob("lib/**/*")
-  s.add_development_dependency 'colored', '~> 1.2'
   s.add_runtime_dependency 'colored', '~> 1.2'
   s.description       = <<-desc
   Simple log util that adds some colors to your logs.

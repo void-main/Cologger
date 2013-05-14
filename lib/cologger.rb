@@ -64,11 +64,10 @@ class Cologger
 
     return unless level <= @log_level
 
-    tag, *content_array = args
-    content = content_array.join(" ")
+    content = args.join(" ")
     log  = "#{sym_for method}\t"
     log += "[#{DateTime.now.iso8601}] "
-    log += "[#{tag}] #{content}"
+    log += "#{content}"
 
     puts log.send(color) # TODO fixme!
   end

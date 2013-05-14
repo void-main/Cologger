@@ -4,7 +4,7 @@
 ## Installation
 This utils is packed as a gem, so, simply run `gem install cologger` to install it.
 
-Current version is 0.1.1
+Current version is 0.1.2
 
 ## Usage
 Using cologger is quite easy && straight forward.
@@ -24,11 +24,11 @@ logger.log_level = Cologger.LEVEL_DEBUG
 After that, you can start logging. For example,
 
 ```
-logger.fatal "universe", "the world is crashing"
-logger.error "brain", "what is going on here?"
-logger.warn "road", "watch your step sir"
-logger.info "FYI", "the big bang theory is funny"
-logger.debug "program", "anything still working?"
+logger.fatal "the world is crashing"
+logger.error "what is going on here?"
+logger.warn "watch your step sir"
+logger.info "[FYI] the big bang theory is funny"
+logger.debug "anything still working?"
 ```
 
 And, here's what you got:
@@ -62,5 +62,6 @@ This gem depends on the cute [`colored' gem](https://github.com/defunkt/colored)
 Thanks sir!
 
 ## Change log
+- 0.1.2, remove `tag` according to [@zhf](https://github.com/zhf)'s advice. User can add tag to content by themself when needed.
 - 0.1.1, use `\t` to align timestamp.
 - 0.1.0, initial version.
