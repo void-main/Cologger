@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "cologger"
-  s.version           = "0.1.0"
+  s.version           = "0.1.1"
   s.date              = "2013-05-14"
   s.summary           = "Log with color!"
   s.homepage          = "http://github.com/void-main/Cologger"

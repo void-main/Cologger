@@ -2,9 +2,9 @@
 *Add some color to your logs!*
 
 ## Installation
-This utils is packed as a gem, so, simply run `gem install cologger` to install it. 
+This utils is packed as a gem, so, simply run `gem install cologger` to install it.
 
-Current version is 0.1.0
+Current version is 0.1.1
 
 ## Usage
 Using cologger is quite easy && straight forward.
@@ -21,7 +21,7 @@ Next, set the log level you want. By default, cologger outputs all the logs to y
 logger.log_level = Cologger.LEVEL_DEBUG
 ```
 
-After that, you can start logging. For example, 
+After that, you can start logging. For example,
 
 ```
 logger.fatal "universe", "the world is crashing"
@@ -39,7 +39,7 @@ And, here's what you got:
 The first parameter of any log method, like the `universe` in the `fatal` log above, is taken as a tag, the other strings, concated by a space character, is treated as the log content.
 
 ## Log levels
-Same as ruby `logger`, there are 5 levels. Namely, 
+Same as ruby `logger`, there are 5 levels. Namely,
 
 - FATAL, an unhandleable error that results in a program crash
 - ERROR, a handleable error condition
@@ -57,9 +57,10 @@ The levels are ordered desendingly according to thier level of importance.
 
 ## Dependency
 
-This gem depends on the cute [`colored' gem](https://github.com/defunkt/colored)  by [defunk](https://github.com/defunkt). 
+This gem depends on the cute [`colored' gem](https://github.com/defunkt/colored)  by [defunk](https://github.com/defunkt).
 
 Thanks sir!
 
 ## Change log
-- 0.1.0, initial version. 
+- 0.1.1, use `\t` to align timestamp.
+- 0.1.0, initial version.
