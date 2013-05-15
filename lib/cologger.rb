@@ -41,6 +41,21 @@ class Cologger
     @log_level = LEVEL_DEBUG # default to log everything
   end
 
+  def update_colors color_hash
+    color_hash.each_pair do |sym, color|
+      if respond_to? sym.to_sym
+        if String::COLORS.has_key? color
+          Cologger.const_set((sym_for sym.to_sym, "COLOR"), new_color)
+          puts Cologger.const_get(sym_for sym.to_sym, "COLOR")
+        else
+          puts "Unknown color #{color} for #{sym}, ignord".red
+        end
+      else
+        puts "Unknown log level #{sym}, ignored".red
+      end
+    end
+  end
+
   def method_missing(method, *args, &block)
     if respond_to? method
       log(method, *args)
