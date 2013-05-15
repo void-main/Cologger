@@ -20,33 +20,25 @@ class Cologger
   # low-level information for developers
   LEVEL_DEBUG = 4
 
-  # fatal in red
-  COLOR_FATAL = 'red'
-
-  # error in magenta
-  COLOR_ERROR = 'magenta'
-
-  # warn in yellow
-  COLOR_WARN  = 'yellow'
-
-  # info in green
-  COLOR_INFO  = 'green'
-
-  # debug in cyan
-  COLOR_DEBUG = 'cyan'
-
   attr_accessor :log_level
 
+  # Set alias for const methods, to override the behavior
+  class << self
+    alias :old_const_get :const_get
+    alias :old_const_set :const_set
+  end
+
+  # public methods
   def initialize
     @log_level = LEVEL_DEBUG # default to log everything
   end
 
+  # Pass in a hash that contains the LEVEL to color hash
   def update_colors color_hash
     color_hash.each_pair do |sym, color|
       if respond_to? sym.to_sym
         if String::COLORS.has_key? color
-          Cologger.const_set((sym_for sym.to_sym, "COLOR"), new_color)
-          puts Cologger.const_get(sym_for sym.to_sym, "COLOR")
+          Cologger.const_set((sym_for sym.to_sym, "COLOR"), color)
         else
           puts "Unknown color #{color} for #{sym}, ignord".red
         end
@@ -66,7 +58,33 @@ class Cologger
     Cologger.constants.include? sym_for(method, "LEVEL")
   end
 
+  def self.const_get const, inherit=true
+    if const =~ /COLOR_(.+)/
+      level = $1.downcase.to_sym
+      @@color_hash[level]
+    else
+      self.old_const_get const, inherit
+    end
+  end
+
+  def self.const_set const, value
+    if const =~ /COLOR_(.+)/
+      level = $1.downcase.to_sym
+      @@color_hash[level] = value
+    else
+      self.old_const_set const, value
+    end
+  end
+
   private
+  @@color_hash = {
+    fatal: "red",
+    error: "magenta",
+    warn:  "yellow",
+    info:  "green",
+    debug: "cyan"
+  }
+
   def sym_for method, prefix = nil
     str = "#{method.to_s.upcase}"
     str = "#{prefix}_#{str}" if prefix
