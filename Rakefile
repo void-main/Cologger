@@ -1,8 +1,9 @@
-require 'rake/testtask'
-
-Rake::TestTask.new do |t|
-      t.libs << 'test'
-end
 
 desc "Run tests"
 task :default => :test
+
+task :test do
+
+	system("rspec test/cologger_spec.rb")
+
+end
