@@ -1,5 +1,5 @@
-require 'cologger'
 require 'rspec'
+require File.dirname(__FILE__) + '/../lib/cologger'
 
 describe "Cologger Spec"  do
 
