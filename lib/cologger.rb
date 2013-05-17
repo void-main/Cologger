@@ -103,6 +103,7 @@ class Cologger
     log += "#{content}"
 
     puts log.send(color) # TODO fixme!
+    return log
   end
 
 end
